@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuda Prasetiya | Professional Portfolio Directory</title>
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #111111;
+            --text-color: #000000;
+            --bg-color: #ffffff;
+            --light-gray: #f5f5f5;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .wrapper {
+            max-width: 850px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        header {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 25px;
+            margin-bottom: 40px;
+        }
+
+        .name {
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .title-tag {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.95rem;
+            color: #555555;
+        }
+
+        .meta-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed var(--primary-color);
+        }
+
+        .meta-info a:hover {
+            border-bottom-style: solid;
+        }
+
+        .featured-link-box {
+            background-color: var(--light-gray);
+            border-left: 5px solid var(--primary-color);
+            padding: 30px;
+            margin-bottom: 45px;
+            border-radius: 4px;
+        }
+
+        .featured-link-box h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .featured-link-box p {
+            font-size: 1rem;
+            color: #444444;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 14px 32px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+            border-radius: 0;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            background-color: #222222;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        section {
+            margin-bottom: 45px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            background-color: #ffffff;
+            transition: border-color 0.2s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .skill-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .skill-card p {
+            font-size: 0.95rem;
+            color: #444444;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .duration {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #666666;
+        }
+
+        .role {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #222222;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item ul {
+            padding-left: 15px;
+            font-size: 0.95rem;
+            color: #444444;
+        }
+
+        .timeline-item li {
+            margin-bottom: 4px;
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666666;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <div class="name">Yuda Prasetiya</div>
+            <div class="title-tag">Advanced AI Data Trainer &bull; Data Annotator &bull; Transcription Quality Specialist</div>
+            <div class="meta-info">
+                <span>📍 Surabaya, East Java, Indonesia</span>
+                <span>&bull;</span>
+                <span>📧 <a href="mailto:Yoedaprasetija@gmail.com">Yoedaprasetija@gmail.com</a></span>
+                <span>&bull;</span>
+                <span>📞 +62 896-8716-1620</span>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <div class="featured-link-box">
+                    <h3>Primary Portfolio Link</h3>
+                    <p>Click the button below to directly access my official LinkedIn professional network, verified digital track record, and real-time project connections:</p>
+                    <a href="https://www.linkedin.com/in/yuda-prasetiya-3aa50b141" target="_blank" class="cta-button">Open LinkedIn Portfolio &rarr;</a>
+                </div>
+            </section>
+
+            <section>
+                <h2>Professional Summary</h2>
+                <p style="font-size: 1rem; color: #333333; text-align: justify;">
+                    Analytical and detail-oriented AI Data Specialist with over 10 years of experience in the data evaluation industry. Expert in Reinforcement Learning from Human Feedback (RLHF), Multimodal AI training, and linguistic quality assurance for Indonesian and Javanese. Proven track record in executing end-to-end evaluations for large-scale conversational assistants and high-precision computer vision projects.
+                </p>
+            </section>
+
+            <section>
+                <h2>Core Skills & Technical Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h4>AI & Machine Learning</h4>
+                        <p>RLHF (Reinforcement Learning from Human Feedback), Prompt Engineering, Model Grounding, and Supervised Fine-Tuning (SFT).</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Annotation & Verification Types</h4>
+                        <p>High-precision Bounding Box, Semantic Segmentation, Script Annotation, and complex Text Labeling.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Languages Profile</h4>
+                        <p>Native Indonesian speaker, Native Javanese speaker, and Professional working proficiency in English.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Platforms & Workflow Tools</h4>
+                        <p>Label Studio, Remotasks Platform, Dax Dashboard, Slack, and comprehensive G-Suite environments.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Tracked Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="company">Turing</span>
+                            <span class="duration">Jan 2026 - Present</span>
+                        </div>
+                        <div class="role">AI Quality Analyst</div>
+                        <ul>
+                            <li>Execute end-to-end evaluation of complex personalization features for large-scale conversational assistants.</li>
+                            <li>Architect sophisticated multi-turn prompt scenarios to audit model grounding and system integration.</li>
+                            <li>Perform meticulous quality audits as a Reviewer/QA to ensure high standards in user-centric helpfulness and safety.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="company">Aligned Labs</span>
+                            <span class="duration">2026 - Present</span>
+                        </div>
+                        <div class="role">Quality Control Specialist (Audio Transcription - Indonesian)</div>
+                        <ul>
+                            <li>Ensure linguistic accuracy and technical fidelity within complex audio datasets, specifically focusing on regional accents and dialects.</li>
+                            <li>Audit transcribed data to maintain the highest standards of grounding and accuracy required for advanced AI training.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="company">Invisible Technologies</span>
+                            <span class="duration">Feb 2025 - Present</span>
+                        </div>
+                        <div class="role">Advanced AI Data Trainer</div>
+                        <ul>
+                            <li>Evaluating AI-generated responses and ranking them based on accuracy, tone, and safety.</li>
+                            <li>Evaluating the visual fidelity and prompt adherence of AI-generated videos and images.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="company">Outlier.ai</span>
+                            <span class="duration">Jan 2024 - Present</span>
+                        </div>
+                        <div class="role">AI Data Trainer (Indonesian Specialist)</div>
+                        <ul>
+                            <li>Train Large Language Models (LLMs) via RLHF to enhance response accuracy in Indonesian.</li>
+                            <li>Conduct preference ranking and fact-checking to minimize hallucinations in generative AI models.</li>
+                            <li>Provide expert linguistic feedback to refine model tone and regional cultural relevance.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="company">Netflix (via Project Vendor)</span>
+                            <span class="duration">Dec 2024 - Mar 2025</span>
+                        </div>
+                        <div class="role">Script Annotation Specialist - Indonesian</div>
+                        <ul>
+                            <li>Annotated film and series scripts to train AI in narrative structure, tone, and emotional context.</li>
+                            <li>Categorized dialogue and scene descriptions to ensure accurate localized AI understanding.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="company">Remotasks</span>
+                            <span class="duration">2021 - 2023</span>
+                        </div>
+                        <div class="role">Data Labeler (Bounding Box Specialist)</div>
+                        <ul>
+                            <li>Specialized in high-precision Bounding Box labeling for Computer Vision projects (Autonomous Driving).</li>
+                            <li>Maintained a consistent 95%+ accuracy rate over a 2-year tenure for spatial object identification.</li>
+                            <li>Collaborated on refining labeling rubrics for ambiguous visual data.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="company">Telus International</span>
+                            <span class="duration">2019 - 2023</span>
+                        </div>
+                        <div class="role">Personalized Internet Ads Assessor</div>
+                        <ul>
+                            <li>Evaluated the relevance and quality of digital advertisements for the Indonesian market.</li>
+                            <li>Improved ad delivery algorithms through detailed linguistic and cultural analysis.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="company">Lionbridge</span>
+                            <span class="duration">2017 - 2019</span>
+                        </div>
+                        <div class="role">Ads Quality Rater</div>
+                        <ul>
+                            <li>Analyzed search engine results and ads to ensure they met strict quality and intent guidelines.</li>
+                            <li>Provided critical feedback on user experience and content appropriateness.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="company">Appen</span>
+                            <span class="duration">2016 - 2017</span>
+                        </div>
+                        <div class="role">Search Engine Evaluator</div>
+                        <ul>
+                            <li>Rated search engine results based on relevance, authority, and user intent for Indonesian-language queries.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <p>
+                    <strong>Brawijaya University, Indonesia</strong><br>
+                    Bachelor of Science (B.Sc.) &bull; Graduated 2009
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Yuda Prasetiya. All Rights Reserved &bull; Optimized for Professional Recruitment Directory</p>
+        </footer>
+    </div>
+
+</body>
+</html>
